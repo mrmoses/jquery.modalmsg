@@ -3,7 +3,9 @@ jquery.modalmsg provides an easy API interface for using modal dialogs to help u
 Provide HTML for the dialog:
 
     <div id="ModalMessage" class="hide">
-        <center style="padding: 25px;"><img src="/communications/Content/images/ajax-loader-15px.gif" src="...loading..." /></center>
+        <center>
+			<img src="/images/ajax-loader.gif" src="...loading..." />
+		</center>
     </div>
 	
 Setting a message will open the dialog:
