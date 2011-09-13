@@ -1,8 +1,22 @@
-﻿jQuery.fn.modalmsg = function(message) {
+﻿//args = [{}] (options object)
+//args = [title] (title string)
+//args = [title,html] (title string, html string)
+jQuery.fn.modalmsg = function(options) {
     var t = this;
     var doclose = false;
-    if (message == "close") {
-        doclose = true;
+    
+    if(arguments.length == 2) {
+    	title = options; //title string
+    	html = arguments[1]; //html string
+    } else if(typeof options == "string") {
+	    if (options == "close") {
+	        doclose = true;
+	    } else {
+			title = options;//title string
+	    }
+    } else {
+		title = options.title;//title string
+		html = options.html;
     }
 	
 	//initialize dialog if necessary
@@ -20,7 +34,7 @@
 	}
 
     //if no msg is provided, use "Please wait..." as default
-    var msg = message || "Please wait...";
+    var msg = title || "Please wait...";
 
     //detect if the dialog is open, closed, or undefined
     switch (t.dialog("isOpen")) {
