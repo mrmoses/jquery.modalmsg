@@ -44,7 +44,7 @@ jQuery.fn.modalmsg = function(options) {
             if (doclose) {
                 SELF.dialog("close");
             } else { //else update the msg
-                $("#ui-dialog-title-" + SELF.attr("id")).text(msg);
+              SELF.dialog( "option", "title", msg );
             }
             break;
         case false: //if its closed
